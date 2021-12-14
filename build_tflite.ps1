@@ -14,9 +14,9 @@ function BuildForWindows($platform, $build_type) {
 
 
     cmake -G "Visual Studio 16 2019" -A $msbuild_platform ../tensorflow/tensorflow/lite/c
-    cmake --build . --config Release
-
-    # msbuild INSTALL.vcxproj /t:build /p:configuration=$build_type /p:platform=$msbuild_platform -maxcpucount
+    # cmake --build . --config Release
+    msbuild INSTALL.vcxproj /t:build /p:configuration=$build_type /p:platform=$msbuild_platform -maxcpucount
+    
     ls
     cd ..
 }
